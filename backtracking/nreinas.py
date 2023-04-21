@@ -1,4 +1,8 @@
 import networkx as nx
+import time
+
+DIMENSION = 8
+FUERZA_BRUTA = False
 
 
 def n_reinas(n):
@@ -28,12 +32,6 @@ def n_reinas(n):
 
                 g.add_edge(casillero(i, j), casillero(i + k, j - k))
     return g
-
-
-import time
-
-DIMENSION = 8
-FUERZA_BRUTA = True
 
 
 def es_compatible(grafo, puestos):
