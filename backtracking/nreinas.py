@@ -15,22 +15,22 @@ def n_reinas(n):
     # Agrego adyacencia por fila
     for i in range(n):
         for j in range(n):
-            for k in range(j, n):
+            for k in range(j + 1, n):
                 g.add_edge(casillero(i, j), casillero(i, k))
     # Agrego por columnas
     for j in range(n):
         for i in range(n):
-            for k in range(i, n):
+            for k in range(i+1, n):
                 g.add_edge(casillero(i, j), casillero(k, j))
 
     # agrego por diagonales
     for i in range(n):
         for j in range(n):
-            for k in range(n - max((i, j))):
-                g.add_edge(casillero(i, j), casillero(i + k, j + k))
-            for k in range(min(n-i, j)):
-
-                g.add_edge(casillero(i, j), casillero(i + k, j - k))
+            for k in range(i):
+                if k < j:
+                    g.add_edge(casillero(i, j), casillero(i - k - 1, j - k - 1))
+                if k + j + 1 < n:
+                    g.add_edge(casillero(i, j), casillero(i - k - 1, j + k + 1))
     return g
 
 
