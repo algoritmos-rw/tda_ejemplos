@@ -15,8 +15,39 @@ def crear_mapa():
     return g
 
 
+def es_compatible(grafo, colores, v):
+    for w in grafo.neighbors(v):
+        if w in colores and colores[w] == colores[v]:
+            return False
+    return True
+
+
+def _coloreo_rec(grafo, k, colores, v):
+    for color in range(k):
+        colores[v] = color
+        if not es_compatible(grafo, colores, v):
+            continue
+        correcto = True
+        for w in grafo.neighbors(v):
+            if w in colores:
+                continue
+            if not _coloreo_rec(grafo, k, colores, w):
+                correcto = False
+                break
+        if correcto:
+            return True
+    del colores[v]
+    return False
+
+
 def coloreo(grafo, k):
-    return None
+    colores = {}
+    if _coloreo_rec(grafo, k, colores, "Argentina"):
+        print(colores)
+        return True
+    else:
+        print(colores)
+        return False
 
 
 if __name__ == "__main__":

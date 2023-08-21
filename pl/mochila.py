@@ -29,8 +29,8 @@ def mochila_variable(v: List[int], w: List[int], W: int):
 
 
 if __name__ == "__main__":
-    v, w, W = cargar_mochila("mochila.txt")
-    y = mochila_variable(v, w, W)
+    valores, pesos, W = cargar_mochila("mochila.txt")
+    y = mochila_variable(valores, pesos, W)
     print(y)
-    print("Peso usado:", sum([w[i] * y[i] for i in range(len(y))]))
-    print("Valor obtenido:", sum([v[i] * y[i] for i in range(len(y))]))
+    print("Peso usado:", sum([pesos[i] * y[i] for i in range(len(y))]))
+    print("Valor obtenido:", sum([valores[i] * y[i] for i in range(len(y))]))
