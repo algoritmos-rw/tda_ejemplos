@@ -1,5 +1,7 @@
 import networkx as nx
+from countries import show_map
 
+map = show_map(2)
 
 def crear_mapa():
     g = nx.Graph()
@@ -23,32 +25,44 @@ def es_compatible(grafo, colores, v):
 
 
 def _coloreo_rec(grafo, k, colores, v):
+    map.update(colores, v, "Elijo un vértice sin colorear")
+
     for color in range(k):
         colores[v] = color
+
+        map.update(colores, v, "Elijo un color y avanzo si puedo")
         if not es_compatible(grafo, colores, v):
+            map.update(colores, v, "Solución parcial inválida: elijo otro color")
             continue
+
         correcto = True
         for w in grafo.neighbors(v):
             if w in colores:
                 continue
+            map.update(colores, v, "Solución parcial válida: llamo recursivamente")
             if not _coloreo_rec(grafo, k, colores, w):
                 correcto = False
+                map.update(colores, v, "Solución parcial inválida: elijo otro color")
                 break
         if correcto:
             return True
     del colores[v]
+    map.update(colores, v, "Solución parcial inválida: vuelvo")
     return False
 
 
 def coloreo(grafo, k):
     colores = {}
     if _coloreo_rec(grafo, k, colores, "Argentina"):
+        map.update(colores, "", "Solución encontrada")
         print(colores)
         return True
     else:
+        map.update(colores, "", "No se encontró solución")
         print(colores)
         return False
 
 
 if __name__ == "__main__":
     print(coloreo(crear_mapa(), 4))
+    map.wait_for_close()
