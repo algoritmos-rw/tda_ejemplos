@@ -1,10 +1,11 @@
 import math
 
-TAM = 16
-DIV_CUADRANTE = int(math.sqrt(TAM))
 NULL_ELEM = 0
+PIOLA = True
 ALTERNATIVAS = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G"}
 # ALTERNATIVAS = {"1", "2", "3", "4", "5", "6", "7", "8", "9"}
+TAM = len(ALTERNATIVAS)
+DIV_CUADRANTE = int(math.sqrt(TAM))
 
 
 def resolver_sudoku_piola(matriz):
@@ -98,7 +99,10 @@ def main(path):
     with open(path) as f:
         for l in f:
             matriz.append(list(map(lambda v: NULL_ELEM if len(v.strip()) == 0 else v, l.strip().split("|"))))
-    resuelto = resolver_sudoku_naive(matriz)
+    if PIOLA:
+        resuelto = resolver_sudoku_piola(matriz)
+    else:
+        resuelto = resolver_sudoku_naive(matriz)
     if resuelto is None:
         print("No hay solucion")
     else:
