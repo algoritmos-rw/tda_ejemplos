@@ -55,3 +55,8 @@ class Optional:
         if self.is_present():
             applyfn(self.value)
 
+    def __repr__(self):
+        if self.is_empty():
+            return "Empty"
+        else:
+            return "Optional[" + repr(self.value) + "]"
