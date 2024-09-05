@@ -1,6 +1,7 @@
 from typing import List
 
 import pulp
+from pulp import LpAffineExpression as Sumatoria
 
 
 def cargar_mochila(ruta):
@@ -21,8 +22,8 @@ def mochila_variable(v: List[int], w: List[int], W: int):
         y.append(pulp.LpVariable("y" + str(i), cat="Binary"))
 
     problem = pulp.LpProblem("products", pulp.LpMaximize)
-    problem += pulp.LpAffineExpression([(y[i], w[i]) for i in range(len(y))]) <= W
-    problem += pulp.LpAffineExpression([(y[i], v[i]) for i in range(len(y))])
+    problem += Sumatoria([(y[i], w[i]) for i in range(len(y))]) <= W
+    problem += Sumatoria([(y[i], v[i]) for i in range(len(y))])
 
     problem.solve()
     return list(map(lambda yi: pulp.value(yi), y))

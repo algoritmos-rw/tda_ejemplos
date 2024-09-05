@@ -2,9 +2,9 @@ import pulp
 
 
 def ejemplo():
+    problem = pulp.LpProblem("products", pulp.LpMinimize)
     vp = pulp.LpVariable("vp")
     ss = pulp.LpVariable("ss")
-    problem = pulp.LpProblem("products", pulp.LpMinimize)
     problem += vp <= 40
     problem += ss <= 30
     problem += 5 * ss >= 50  # mostrar cambiando a 51

@@ -5,7 +5,7 @@ def ejemplo():
     x = pulp.LpVariable("x")
     y = pulp.LpVariable("y")
     problem = pulp.LpProblem("products", pulp.LpMaximize)
-    problem += 3 * x - y >= 0
+    problem += 3 * x >= y
     problem += x + 2 * y <= 14
     problem += x - y <= 2
     problem += 5 * x + 3 * y
