@@ -1,7 +1,7 @@
 import networkx as nx
 import time
 
-DIMENSION = 8
+DIMENSION = 16
 FUERZA_BRUTA = False
 
 
@@ -34,7 +34,16 @@ def n_reinas(n):
     return g
 
 
-def es_compatible(grafo, puestos):
+def es_compatible(grafo, puestos, ultimo_puesto):
+    for w in puestos:
+        if ultimo_puesto == w:
+            continue
+        if grafo.has_edge(ultimo_puesto, w):
+            return False
+    return True
+
+
+def es_compatible_viendo_todos(grafo, puestos, ultimo_puesto):
     for v in puestos:
         for w in puestos:
             if v == w:
@@ -48,7 +57,7 @@ def _ubicacion_FB(grafo, vertices, v_actual, puestos, n):
     if v_actual == len(grafo):
         return False
     if len(puestos) == n:
-        return es_compatible(grafo, puestos)
+        return es_compatible_viendo_todos(grafo, puestos)
     # Mis opciones son poner acá, o no
     puestos.add(vertices[v_actual])
     if _ubicacion_FB(grafo, vertices, v_actual + 1, puestos, n):
@@ -61,14 +70,11 @@ def _ubicacion_BT(grafo, vertices, v_actual, puestos, n):
     if v_actual == len(grafo):
         return False
     if len(puestos) == n:
-        return es_compatible(grafo, puestos)
-
-    if not es_compatible(grafo, puestos):
-        return False
+        return True
 
     # Mis opciones son poner acá, o no
     puestos.add(vertices[v_actual])
-    if _ubicacion_BT(grafo, vertices, v_actual + 1, puestos, n):
+    if es_compatible(grafo, puestos, vertices[v_actual]) and _ubicacion_BT(grafo, vertices, v_actual + 1, puestos, n):
         return True
     puestos.remove(vertices[v_actual])
     return _ubicacion_BT(grafo, vertices, v_actual + 1, puestos, n)
@@ -88,9 +94,9 @@ def _ubicacion_BT_todos(grafo, vertices, v_actual, puestos, n):
     if v_actual == len(grafo) and len(puestos) != n:
         return []
     if len(puestos) == n:
-        return [set(puestos)] if es_compatible(grafo, puestos) else []
+        return [set(puestos)] if es_compatible_viendo_todos(grafo, puestos) else []
 
-    if not es_compatible(grafo, puestos):
+    if not es_compatible_viendo_todos(grafo, puestos):
         return []
 
     # Mis opciones son poner acá, o no
