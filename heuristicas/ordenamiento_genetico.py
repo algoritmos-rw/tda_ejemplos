@@ -15,8 +15,9 @@ def tan_bien_ordenado(arreglo):
 
 
 def conteo_inversiones_rec(arreglo):
-    # si, tecnicamente estamos ordenando, pero sirve para el ejemplo, con la funcion de arriba va a dar peores resultados
-    # (que tienen sentido)
+    # si, tecnicamente estamos ordenando, pero sirve para el ejemplo, con la funcion de arriba va a dar peores
+    # resultados (que tienen sentido). Podriamos implementar esto de forma cuadratica sin ordenar pero me haria
+    # ejecutar mas lentoe el ejemplo
     if len(arreglo) <= 1:
         return arreglo, 0
     izq = arreglo[:len(arreglo)//2]
