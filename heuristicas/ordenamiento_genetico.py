@@ -84,7 +84,6 @@ def aplicar_generacion(individuos):
             ind[i] = ind[j]
             ind[j] = aux
 
-
     for i in range(ELITISTA):
         siguiente_generacion.append(mas_aptos[i])
     return siguiente_generacion
