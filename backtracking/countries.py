@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 from typing import Any, Callable
 from itertools import chain
@@ -42,20 +44,18 @@ def get_polygons() -> dict[str, list[Any]]:
     response = requests.get(url)
     response.raise_for_status()
     polygons_gen = (
-        (x["properties"]["ADMIN"], x["geometry"]["coordinates"])
+        (x["properties"]["name"], x["geometry"]["coordinates"])
         for x in response.json()["features"]
     )
     countries_filter = set(
         chain(
             countries_map,
-            ("Falkland Islands", "South Georgia and South Sandwich Islands"),
+            ("Falkland Islands", "South Georgia and the Islands"),
         )
     )
     country_polygons = {x: y for x, y in polygons_gen if x in countries_filter}
     country_polygons["Argentina"] += country_polygons["Falkland Islands"]
-    country_polygons["Argentina"] += country_polygons[
-        "South Georgia and South Sandwich Islands"
-    ]
+    country_polygons["Argentina"] += country_polygons["South Georgia and the Islands"]
     with open(POLYGONS_PATH, "w") as f:
         json.dump(country_polygons, f)
     return country_polygons
@@ -72,9 +72,15 @@ def get_lines(
             continue
         for polygon in polygons[country]:
             for coords in polygon:
-                lon, lat = zip(*coords)
-                x, y = m(lon, lat)
-                segments.append(list(zip(x, y)))
+                try:
+                    lon, lat = zip(*coords)
+                    x, y = m(lon, lat)
+                    segments.append(list(zip(x, y)))
+                except:
+                    lon, lat = zip(*polygon)
+                    x, y = m(lon, lat)
+                    segments.append(list(zip(x, y)))
+                    break
         lines = LineCollection(segments, antialiaseds=(1,))
         lines.set_facecolor("white")
         lines.set_edgecolor("k")
