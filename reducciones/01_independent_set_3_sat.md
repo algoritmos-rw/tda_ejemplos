@@ -1,4 +1,7 @@
 ---
+lang: es
+fontsize: 10pt
+geometry: margin=1cm,top=1cm,bottom=1cm
 math: true
 ---
 
