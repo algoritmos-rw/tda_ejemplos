@@ -36,7 +36,7 @@ Este validador funciona en tiempo $\mathcal{O}\left(k^2\right)$, (con $k$ nunca 
 * Creamos un triángulo por cada cláusula (es decir, unimos los nodos que representan a cada término de la cláusula). 
 * Ponemos arista entre un término que represente a una variable, y un término que represente al complemento de la misma (pueden haber varias repeticiones nodos por una misma variable y/o complemento, agregar por cada par). 
 
-Ejemplo: Si tengo que mis cláusulas son, por ejemplo $(x_1, ~x_2, x_3), (x_1, x_2, ~x_3), (x_4, x_3, ~x_2)$ el grafo resultante sería: 
+Ejemplo: Si tengo que mis cláusulas son, por ejemplo $(x_1 \lor ~x_2 \lor x_3) \land (x_1 \lor x_2 \lor ~x_3) \land (x_4 \lor x_3 \lor ~x_2)$ el grafo resultante sería: 
 
 
 ![grafo 3sat](graficos/3sat_is.png){:width="50%"}
