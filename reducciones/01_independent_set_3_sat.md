@@ -2,7 +2,7 @@
 math: true
 ---
 
-# 1. Independent Set es NP-Completo, usando 3-SAT
+# Independent Set es NP-Completo, usando 3-SAT
 
 En la primera clase hacemos esta reducción aún sin haber hablado de problemas NP-Completos. Aquí haremos la misma reducción, pero incluyendo el validador para hacerlo completo como en el contexto de un examen.
 
