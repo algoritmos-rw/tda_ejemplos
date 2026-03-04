@@ -6,7 +6,7 @@ math: true
 
 En la primera clase hacemos esta reducción aún sin haber hablado de problemas NP-Completos. Aquí haremos la misma reducción, pero incluyendo el validador para hacerlo completo como en el contexto de un examen.
 
-## Validadador
+## Validador
 
 ```python
 def validadorIS(grafo, k, indset):
