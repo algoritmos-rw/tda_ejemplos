@@ -27,7 +27,7 @@ def validadorIS(grafo, k, indset):
 	return True
 ```
 
-Este validador funciona en tiempo $\mathcal{O}(k^2)$, (con $k$ nunca mayor a $n$), por lo que es en efecto polinomial. Independent Set es un problema en NP. 
+Este validador funciona en tiempo $\mathcal{O}\left(k^2\right)$, (con $k$ nunca mayor a $n$), por lo que es en efecto polinomial. Independent Set es un problema en NP. 
 
 ## Reducción propuesta
 
@@ -43,11 +43,11 @@ Ejemplo: Si tengo que mis cláusulas son, por ejemplo $(x_1, ~x_2, x_3), (x_1, x
 
 **Decimos entonces que**:
 
-La instancia de 3-SAT (de $k$ cláusulas) es satisfacible <--> El grafo G resultante tiene un independent set de al menos $k$ vértices. 
+La instancia de 3-SAT (de $k$ cláusulas) es satisfacible $\iff$ El grafo G resultante tiene un independent set de al menos $k$ vértices. 
 
 Como primera nota: es imposible que haya un Independent Set de más de $k$ vértices en este grafo. Tenemos $k$ triángulos. En cada triángulo no puedo tener más de un vértice en el IS porque sino serían adyacentes (no sería un IS). Entonces podemos tener, como mucho, un vértice de cada triángulo, por lo que es imposible tener uno de más de $k$ vértices. 
 
-### Demostramos que si 3-SAT es satisfacible -> Hay IS en el grafo creado
+### Demostramos que si 3-SAT es satisfacible $\rightarrow$ Hay IS en el grafo creado
 
 Esta demostración es relativamente sencilla por método directo. Si hay un 3-SAT, significa que hay _al menos_ una término activo en cada cláusula (podría haber más de uno, y he aquí que es importante que creamos un nodo por término y no por variable). Elegimos alguno de esos términos activos (sea variable o complemento) como parte del IS. 
 
@@ -58,7 +58,7 @@ Segundo punto: en efecto este es un IS. Como elegimos un sólo vértice por cada
 Por lo tanto, si 3-SAT es satisfacible hay un IS de tamaño al menos (y exacto) $k$ en el grafo generado. 
 
 
-### Demostramos que si hay IS en un grafo resultante de una creación -> hay 3-SAT
+### Demostramos que si hay IS en un grafo resultante de una creación $\rightarrow$ hay 3-SAT
 
 Nuevamente, vamos por método directo. Suponemos que tenemos un IS en el grafo generado (no un grafo cualquiera, uno con las características generadas a partir de una instancia de 3-SAT). Ese IS tiene que tener exactamente $k$ vértices por lo explicado antes. Y tiene que tener si o si uno por triángulo (es decir, uno por cada representación de cada cláusula). Si esto no fuera cierto (un triángulo no tiene ninguno), sería porque hay 2 (o 3) en triángulo y eso no sería un IS válido. 
 
