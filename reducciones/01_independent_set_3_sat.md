@@ -45,24 +45,24 @@ Ejemplo: Si tengo que mis cláusulas son, por ejemplo $(x_1, ~x_2, x_3), (x_1, x
 
 La instancia de 3-SAT (de $k$ cláusulas) es satisfacible $\iff$ El grafo G resultante tiene un independent set de al menos $k$ vértices. 
 
-Como primera nota: es imposible que haya un Independent Set de más de $k$ vértices en este grafo. Tenemos $k$ triángulos. En cada triángulo no puedo tener más de un vértice en el IS porque sino serían adyacentes (no sería un IS). Entonces podemos tener, como mucho, un vértice de cada triángulo, por lo que es imposible tener uno de más de $k$ vértices. 
+Como primera nota: es imposible que haya un Independent Set de más de $k$ vértices en este grafo. Tenemos $k$ triángulos. En cada triángulo no puedo tener más de un vértice en el _IS_ porque sino serían adyacentes (no sería un _IS_). Entonces podemos tener, como mucho, un vértice de cada triángulo, por lo que es imposible tener uno de más de $k$ vértices. 
 
-### Demostramos que si 3-SAT es satisfacible $\rightarrow$ Hay IS en el grafo creado
+### Demostramos que si 3-SAT es satisfacible $\rightarrow$ Hay _IS_ en el grafo creado
 
-Esta demostración es relativamente sencilla por método directo. Si hay un 3-SAT, significa que hay _al menos_ una término activo en cada cláusula (podría haber más de uno, y he aquí que es importante que creamos un nodo por término y no por variable). Elegimos alguno de esos términos activos (sea variable o complemento) como parte del IS. 
+Esta demostración es relativamente sencilla por método directo. Si hay un 3-SAT, significa que hay _al menos_ una término activo en cada cláusula (podría haber más de uno, y he aquí que es importante que creamos un nodo por término y no por variable). Elegimos alguno de esos términos activos (sea variable o complemento) como parte del _IS_. 
 
-Primer punto: este IS tiene exactamente $k$ vértices (elegimos un vértice por cláusula=triángulo, que son $k$). 
+Primer punto: este _IS_ tiene exactamente $k$ vértices (elegimos un vértice por cláusula=triángulo, que son $k$). 
 
-Segundo punto: en efecto este es un IS. Como elegimos un sólo vértice por cada triángulo, no hay conflictos dentro del triángulo (nuevamente, aquí es importante haber repetido). Lo que queda es ver intra-triángulo, que tenemos arista entre variables con su complemento (cada par variable-complemento como haya). Pero es imposible que ambos pertenezcan al IS porque significaría que tanto una variable como su complemento estaban activos en el 3-SAT que era, por hipótesis de método directo, satisfacible (entonces no existe variable y complemento ambos activos). 
+Segundo punto: en efecto este es un _IS_. Como elegimos un sólo vértice por cada triángulo, no hay conflictos dentro del triángulo (nuevamente, aquí es importante haber repetido). Lo que queda es ver intra-triángulo, que tenemos arista entre variables con su complemento (cada par variable-complemento como haya). Pero es imposible que ambos pertenezcan al _IS_ porque significaría que tanto una variable como su complemento estaban activos en el 3-SAT que era, por hipótesis de método directo, satisfacible (entonces no existe variable y complemento ambos activos). 
 
-Por lo tanto, si 3-SAT es satisfacible hay un IS de tamaño al menos (y exacto) $k$ en el grafo generado. 
+Por lo tanto, si 3-SAT es satisfacible hay un _IS_ de tamaño al menos (y exacto) $k$ en el grafo generado. 
 
 
-### Demostramos que si hay IS en un grafo resultante de una creación $\rightarrow$ hay 3-SAT
+### Demostramos que si hay _IS_ en un grafo resultante de una creación $\rightarrow$ hay 3-SAT
 
-Nuevamente, vamos por método directo. Suponemos que tenemos un IS en el grafo generado (no un grafo cualquiera, uno con las características generadas a partir de una instancia de 3-SAT). Ese IS tiene que tener exactamente $k$ vértices por lo explicado antes. Y tiene que tener si o si uno por triángulo (es decir, uno por cada representación de cada cláusula). Si esto no fuera cierto (un triángulo no tiene ninguno), sería porque hay 2 (o 3) en triángulo y eso no sería un IS válido. 
+Nuevamente, vamos por método directo. Suponemos que tenemos un _IS_ en el grafo generado (no un grafo cualquiera, uno con las características generadas a partir de una instancia de 3-SAT). Ese _IS_ tiene que tener exactamente $k$ vértices por lo explicado antes. Y tiene que tener si o si uno por triángulo (es decir, uno por cada representación de cada cláusula). Si esto no fuera cierto (un triángulo no tiene ninguno), sería porque hay 2 (o 3) en triángulo y eso no sería un _IS_ válido. 
 
-Agarramos ese vértice parte del IS en un triángulo, e indicamos que esa variable/complemento está activada. Es imposible que en este proceso digamos que una variable y su complemento están activados, porque es imposible que una variable y su complemento estén en el IS en simultáneo (son adyacentes). Hacemos eso por cada cláusula, y tenemos un elemento activo por cada cláusula, logrando satisfacer el 3-SAT. 
+Agarramos ese vértice parte del _IS_ en un triángulo, e indicamos que esa variable/complemento está activada. Es imposible que en este proceso digamos que una variable y su complemento están activados, porque es imposible que una variable y su complemento estén en el _IS_ en simultáneo (son adyacentes). Hacemos eso por cada cláusula, y tenemos un elemento activo por cada cláusula, logrando satisfacer el 3-SAT. 
 
 Importante a notar: 
 1. Podríamos en dos cláusulas diferentes haber elegido vértices que representan a la misma variable (complemento). Esto no es un problema. 
