@@ -38,6 +38,8 @@ Construimos un grafo G' que sea el complemento del grafo original. Es decir, que
 
 Como ejemplo: 
 
+![grafo kclique](graficos/kclique.png){:width="50%"}
+
 
 **Decimos entonces que**:
 
