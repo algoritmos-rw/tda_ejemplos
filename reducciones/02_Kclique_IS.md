@@ -1,3 +1,10 @@
+---
+lang: es
+fontsize: 10pt
+geometry: margin=1cm,top=1cm,bottom=1cm
+math: true
+---
+
 # K-Clique es NP Completo (usando Independent Set)
 
 El problema de K-clique indica: Dado un grafo (puede aplicar a dirigido o no dirigido, aunque suele plantearse para no dirigidos) y un valor $K$, ¿Existe en el grafo un clique de al menos $K$ vértices? Recordando que un clique es un subgrafo completo dentro del grafo. Es decir, si hay un subgrafo, completo, de al menos $K$ vértices. 
