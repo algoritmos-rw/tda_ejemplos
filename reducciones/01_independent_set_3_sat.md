@@ -75,6 +75,6 @@ Importante a notar:
 
 Con esto hemos demostrado que, si tenemos un grafo como el generado a partir de una instancia de 3-SAT, y este tiene un Independent Set de al menos (y exactamente) $k$ vértices, entonces dicha instancia de 3-SAT es satisfacible. 
 
-### Conclusión
+## Conclusión
 
 Habiendo demostrado que a reducción propuesta es correcta (y polinomial), reduciendo un problema NP-Completo (3-SAT), y demostrando que Independent Set está en NP, podemos concluir que Independent Set es un problema NP-Completo. 

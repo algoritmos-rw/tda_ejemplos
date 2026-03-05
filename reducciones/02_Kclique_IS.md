@@ -54,7 +54,7 @@ Demostramos nuevamente por método directo. La demostración es bastante semejan
 
 Suponemos que en efecto en nuestro grafo complemento tenemos un clique de al menos $K$ vértices (pueden ser $K$, o más). Eso significa que, por definición, esos vértices son necesariamente adyacentes todos contra todos. Entonces, si vamos al grafo original, esas mismas aristas dejan de existir (porque están en el complemento por no haber existido en el original). Todos esos vértices pasan a no ser adyacentes ninguno con ninguno. Es decir, esos vértices (que son al menos $K$) conforman un Independent Set en el grafo original, porque en dicho grafo ninguno es adyacente a ninguno. Si alguno fuera adyacente a algún otro, significa que no eran un clique en el complemento. Entonces, en el grafo original tenemos, en efecto, un IS de al menos $K$ vértices. 
 
-### Conclusión
+## Conclusión
 
 Habiendo demostrado que a reducción propuesta es correcta (y polinomial), reduciendo un problema NP-Completo (_IS_), y demostrando que K-Clique está en NP, podemos concluir que K-Clique es un problema NP-Completo. 
 
