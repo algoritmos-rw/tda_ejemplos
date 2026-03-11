@@ -46,7 +46,8 @@ Vamos a reducir el problema de Ciclo Hamiltoniano (sobre un grafo dirigido), ya 
 La reducción propuesta es: Creamos un nuevo grafo con mismos vértices y aristas, elegimos cualquier vértice $v$ al azar. Ese vértice lo reemplazamos por 2 vértice $v'$ y $v''$. Todas las aristas que entraban a $v$ ahora entran a $v''$. Todas las aristas que salían de $v$ ahora salen de $v'$. 
 
 Por ejemplo: 
-![grafo 3sat](graficos/caminohamiltonianodir.png){:width="50%"}
+
+![](graficos/caminohamiltonianodir.png){height="200"}
 
 Notar que al distinguir entradas de salidas, este planteo no tiene sentido en el caso de un grafo no dirigido. 
 

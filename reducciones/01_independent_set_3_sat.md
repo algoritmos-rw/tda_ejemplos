@@ -42,7 +42,7 @@ Este validador funciona en tiempo $\mathcal{O}\left(k^2\right)$, (con $k$ nunca 
 Ejemplo: Si tengo que mis cláusulas son, por ejemplo $(x_1 \lor ~x_2 \lor x_3) \land (x_1 \lor x_2 \lor ~x_3) \land (x_4 \lor x_3 \lor ~x_2)$ el grafo resultante sería: 
 
 
-![grafo 3sat](graficos/3sat_is.png){:width="50%"}
+![](graficos/3sat_is.png){width="500"}
 
 Esta reducción es polinomial, ya que crearla nos demora: $\mathcal{O}(k)$ crear los vértices, $\mathcal{O}(k)$ en agregar las aristas por cada cláusula, y luego agregar las aristas entre variables-complementos podría ser a lo suma $\mathcal{O}(k)$ (por cada una de las 3 variables/complementos agregar 3 aristas más). Siendo en total $\mathcal{O}(k)$, entonces polinomial. 
 
