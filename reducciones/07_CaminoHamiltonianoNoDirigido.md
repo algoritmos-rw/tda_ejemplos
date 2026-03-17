@@ -52,7 +52,7 @@ Existe Ciclo Hamiltoniano en el grafo original $\iff$ existe Camino Hamiltoniano
 
 Supongamos que en el grafo original hay un ciclo Hamiltoniano, es decir un ciclo que pasa por todos los vértices una vez. Sea $v$ el vértice que seleccionamos para duplicar en la reducción. En el nuevo grafo tendremos dos copias de este vértice, $v'$ y $v''$, cada una conectada a los mismos vértices que $v$ en el grafo original. Además agregamos dos nuevos vértices $a$ y $b$, conectados respectivamente a $v'$ y $v''$, para forzar el inicio y el final del camino.
 
-En el Ciclo Hamiltoniano original podemos comenzar a recorrer el ciclo desde el vértice $v$. Si eliminamos la última arista que vuelve a $v$, obtenemos un camino que pasa por todos los demás vértices exactamente una vez. Entonces, podemos obtener un camino comenzando por $a$, recorriendo el ciclo entero comenzando por $v'$ excepto por la última arista de cierre, continuando por $v''$ y cerrando en $b$. Es decir:
+En el Ciclo Hamiltoniano original podemos comenzar a recorrer el ciclo desde el vértice $v$. Si eliminamos la última arista que vuelve a $v$, obtenemos un camino que pasa por todos los demás vértices exactamente una vez. Entonces, podemos obtener un camino comenzando por $a$, recorriendo el ciclo entero comenzando por $v'$ excepto por la última arista de cierre, continuando por $v''$ (que necesariamente existe, porque si cerraba ciclo, es porque existía la arista a $v$, entonces ahora existe a $v''$) y cerrando en $b$. Es decir:
 
 $$
 a \rightarrow v' \rightarrow ... \rightarrow v'' \rightarrow b
