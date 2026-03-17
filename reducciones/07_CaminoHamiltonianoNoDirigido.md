@@ -1,3 +1,10 @@
+---
+lang: es
+fontsize: 10pt
+geometry: margin=1cm,top=1cm,bottom=1cm
+math: true
+---
+
 # Camino Hamiltoniano no dirigido
 
 Planteada una vez la reducción que demuestra que Camino Hamiltoniano para grafos dirigidos es un problema NP-Completo, podemos también demostrar que la versión para grafos no dirigidos del problema también lo es.
