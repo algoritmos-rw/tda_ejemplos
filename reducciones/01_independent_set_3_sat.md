@@ -39,7 +39,7 @@ Este validador funciona en tiempo $\mathcal{O}\left(k^2\right)$, (con $k$ nunca 
 * Creamos un triángulo por cada cláusula (es decir, unimos los nodos que representan a cada término de la cláusula). 
 * Ponemos arista entre un término que represente a una variable, y un término que represente al complemento de la misma (pueden haber varias repeticiones nodos por una misma variable y/o complemento, agregar por cada par). 
 
-Ejemplo: Si tengo que mis cláusulas son, por ejemplo $(x_1 \lor ~x_2 \lor x_3) \land (x_1 \lor x_2 \lor ~x_3) \land (x_4 \lor x_3 \lor ~x_2)$ el grafo resultante sería: 
+Ejemplo: Si tengo que mis cláusulas son, por ejemplo $(x_1 \lor \neg x_2 \lor x_3) \land (x_1 \lor x_2 \lor \neg x_3) \land (x_4 \lor x_3 \lor \neg x_2)$ el grafo resultante sería: 
 
 
 ![](graficos/3sat_is.png){width="500"}
@@ -70,6 +70,7 @@ Nuevamente, vamos por método directo. Suponemos que tenemos un _IS_ en el grafo
 Agarramos ese vértice parte del _IS_ en un triángulo, e indicamos que esa variable/complemento está activada. Es imposible que en este proceso digamos que una variable y su complemento están activados, porque es imposible que una variable y su complemento estén en el _IS_ en simultáneo (son adyacentes). Hacemos eso por cada cláusula, y tenemos un elemento activo por cada cláusula, logrando satisfacer el 3-SAT. 
 
 Importante a notar: 
+
 1. Podríamos en dos cláusulas diferentes haber elegido vértices que representan a la misma variable (complemento). Esto no es un problema. 
 2. Podría una variable ni su complemento haber sido elegido para estar activo. Tampoco es un problema, significa que es irrelevante su valor dado el resto, lo cual significa que podemos elegir tanto que la variable esté activa como su complemento (elijamos una, pues, y listo).  
 
