@@ -46,7 +46,7 @@ La reducción en este caso resulta de seleccionar cualquiera de los vértices de
 
 Por ejemplo: 
 
-![](graficos/caminohamiltonianonodir.png)
+![](graficos/caminohamiltonianonodir.png){height="150"}
 
 Nota: utilizo "ini" y "fin" para aclarar que dichos vértices fueron introducidos con el fin de forzar el comienzo y el fin del camino. De todos modos, al ser un grafo no dirigido ambos podrían ser el inicio o el fin.
 
