@@ -45,12 +45,12 @@ Como ejemplo:
 
 El grafo original tiene un independent set de al menos $K$ vértices $\iff$ El grafo G' resultante tiene un Clique de al menos $K$ vértices. 
 
-### Hay _IS_ en el grafo creado de al menos K vértices $\rightarrow$ El grafo tiene un clique de al menos K vértices
+### Hay _IS_ en el grafo original de al menos K vértices $\rightarrow$ El grafo creado tiene un clique de al menos K vértices
 
 Nuevamente vamos por método directo. Supongamos que en efecto tenemos un _IS_ de al menos $K$ vértices en el grafo original. Eso, por definición, significa que ninguno de los vértices es adyacente a ninguno de los demás de ese IS (que son $K$ o más). Es decir, que no existen aristas entre sí. Entonces, en el complemento existen dichas aristas (porque justamente tiene las que no tiene el original). Todos esos vértices deben conectarse entre sí en el complemento. Al conectarse todos entre sí, el subgrafo que contiene a dichos vértices (que son al menos $K$) debe ser completo, y por lo tanto un clique, de al menos $K$ vértices.
 
 
-### El grafo tiene un clique de al menos K vértices $\rightarrow$ Hay _IS_ en el grafo creado de al menos K vértices
+### El grafo creado tiene un clique de al menos K vértices $\rightarrow$ Hay _IS_ en el grafo original de al menos K vértices
 
 Demostramos nuevamente por método directo. La demostración es bastante semejante porque se trata de una reducción por equivalencia directa (como en el caso de Vertex Cover con IS). 
 
