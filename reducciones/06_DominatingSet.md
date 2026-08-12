@@ -77,3 +77,12 @@ Entonces, es imposible que la arista no esté cubierta (sí o sí $v$ y/o $w$ so
 ## Conclusión
 
 Habiendo demostrado que a reducción propuesta es correcta (y polinomial), reduciendo un problema NP-Completo (Vertex Cover), y demostrando que Dominating Set está en NP, podemos concluir que Dominating Set es un problema NP-Completo. 
+
+## Detalle
+
+La reducción en realidad tiene un error: ¿Qué sucedería si hay un vértice "suelto" en el grafo? (es decir, un vértice sin aristas) ¿qué diferencia notamos entre Vertex Cover y Dominating Set en este caso? (podés pensarlo con un único vértice incluso).
+
+La solución propuesta a esto en realidad es que el $k'$ de Dominating Set sea $k + \#verticesSueltos$. 
+
+Dejamos al lector analizar qué correcciones habría que hacer a la demostración considerando este cambio. Esto a veces sucede que alguien se da cuenta directamente en clase y lo charlamos, pero a veces no. Cualquier cosa, consulten por Slack :)
+
