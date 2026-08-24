@@ -23,7 +23,7 @@ Notar que esa multiplicación por potencias de 2 no es más que hacer _shift-lef
 
 Planteando así, tendríamos 4 multiplicaciones a resolver, de la mitad de tamaño, con lo cual tendríamos una recurrencia $T(n) = 4 T\left(\frac{n}{2}\right) + \mathcal{O}(n) \rightarrow T(n) = \mathcal{O}(n^2)$. 
 
-Karatsuva-Offman plantea como cambio recordar que $(x_1 + x_0)(y_1+y_0) = x_1y_1 + x_1y_0+x_0y_1+x_0y_0$. Si calculamos $x_1y_1$ y $x_0y_0$ (que los necesitamos), podemos al resultado de la multiplicación restarle ambos, y nos quedaría $x_1y_0 + x_0y_1$. Con una sola multiplicación tendríamos 2 términos que nos faltan. 
+Karatsuba-Offman plantea como cambio recordar que $(x_1 + x_0)(y_1+y_0) = x_1y_1 + x_1y_0+x_0y_1+x_0y_0$. Si calculamos $x_1y_1$ y $x_0y_0$ (que los necesitamos), podemos al resultado de la multiplicación restarle ambos, y nos quedaría $x_1y_0 + x_0y_1$. Con una sola multiplicación tendríamos 2 términos que nos faltan. 
 
 ## Código
 ```python
