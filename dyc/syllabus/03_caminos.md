@@ -27,6 +27,8 @@ Recomendamos recordar que:
 	implementen nada al respecto de esto. Suponé que está disponible
 	la función `multiplicar_matrices(A, B)`.  
 
+## Análisis
+
 En función de lo que nos piden recordar, podemos ver que lo que nos sirve calcular es $A^k$. Si tenemos esa matriz, automáticamente lo único que debemos hacer es recorrer la matriz sumando los valores y listo. 
 
 Entonces primero se podría pensar en un algoritmo trivial: 
@@ -58,7 +60,6 @@ def potenciar(a, k):
 		resultado = multiplicar_matrices(resultado, a)
 	return resultado
 
-
 def caminos(a, k):
 	ak = potenciar(a, k)
 	resul = 0
@@ -71,15 +72,19 @@ def caminos(a, k):
 ## Complejidad
 
 Está claro que la complejidad de nuestro algoritmo va a terminar siendo: 
-$$\mathcal{O}(n^2 + potenciar)$$
+$$\mathcal{O}\left(n^2 + potenciar\right)$$
 
 Recorrer la matriz luego de potenciar es claro cuanto consume, nos falta ver cuánto cuesta `potenciar`. Tenemos que tener cuidado y plantear la ecuación de recurrencia. Es muy fácil caer en errores y tratar de poner primero los valores de `A`, `B` y `C` sin tener una ecuación de recurrencia, y cometer un error enorme. 
 
-Un error común sería decir: $T(n) = T\left(\frac{n}{2}\right) + \mathcal{O}\left(n^{\log27}\right)$. Esto no sería correcto, porque la matriz no se va haciendo más pequeña. Siempre multiplicamos la matriz con mismo tamaño. Acá tenemos 2 variables, no una: 
+Un error común sería decir: $T(n) = T\left(\frac{n}{2}\right) + \mathcal{O}\left(n^{\log_27}\right)$. Esto no sería correcto, porque la matriz no se va haciendo más pequeña. Siempre multiplicamos la matriz con mismo tamaño. Acá tenemos 2 variables, no una: 
 
-$$T(n, k) = T\left(\frac{k}{2}\right, n) + \mathcal{O}\left(n^{\log27}\right)$$
+$$T(n, k) = T\left(n, \frac{k}{2}\right) + \mathcal{O}\left(n^{\log_27}\right); T(n, 1) = \mathcal{O}(1)$$
 
-Pueden sacar incluso a $n$ de la recurrencia pero no que el costo $\mathcal{O}\left(n^{\log27}\right)$ es fijo. No podemos aplicar el teorema maestro en estas condiciones. 
+Pueden sacar incluso a $n$ de la recurrencia pero no que el costo $\mathcal{O}\left(n^{\log_27}\right)$ es fijo. No podemos aplicar el teorema maestro en estas condiciones. 
 
-Entonces.. ¿ya está? ¿perdimos? No, todavía hay que agarrar la pala. En este caso al menos no termina siendo tan complicado resolver esa recurrencia como podría llegar a ser en otros casos. En este caso sabemos que efectivamente vamos a tener $\log k$ invocaciones recursivas (esta cantidad **no** depende de $n$). Podemos incluso plantear que la cantidad de llamados recursivos pueden verse como $Cant(k) = Cant\left(\frac{k}{2}\right) + 1$. Sea más intuitivo o más analítico, es una cantidad logarítmica. Como todo lo demás que hacemos en la función recursiva es de tiempo constante, lo que importa es el `multiplicar_matrices(pot_mitad, pot_mitad)` (que se ejecute eventualmente 2 veces no nos cambia la complejidad). Es decir, se va a terminar ejecutando $log n$ veces una función que siempre consume $\mathcal{O}\left(n^{\log27}\right)$, por lo tanto, la complejidad de todo nuestro algoritmo es $T(n) = $\mathcal{O}\left(n^{\log27} \log k\right)$, lo cual es mejor que $\mathcal{O}\left(n^{\log27} k\right)$.
+Entonces.. ¿ya está? ¿perdimos? No, todavía hay que agarrar la pala. En este caso al menos no termina siendo tan complicado resolver esa recurrencia como podría llegar a ser en otros casos. En este caso sabemos que efectivamente vamos a tener $\log k$ invocaciones recursivas (esta cantidad **no** depende de $n$). Podemos incluso plantear que la cantidad de llamados recursivos pueden verse como $Cant(k) = Cant\left(\frac{k}{2}\right) + 1$. Sea más intuitivo o más analítico, es una cantidad logarítmica. Como todo lo demás que hacemos en la función recursiva es de tiempo constante, lo que importa es el `multiplicar_matrices(...)` (que se ejecute eventualmente 2 veces no nos cambia la complejidad). Es decir, se va a terminar ejecutando $\log n$ veces una función que siempre consume $\mathcal{O}\left(n^{\log_27}\right)$, por lo tanto, la complejidad de todo nuestro algoritmo de D&C es $T(n) = \mathcal{O}\left(n^{\log_27} \log k\right)$, lo cual es mejor que $\mathcal{O}\left(n^{\log_27} k\right)$.
 
+Entonces en total nos va a quedar:
+$$\mathcal{O}\left(n^2 + n^{\log_27} \log k\right) = \mathcal{O}\left(n^{\log_27} \log k\right)$$
+
+(Notar que $\log_2 7 > 2$ así que por completo podemos terminar de sacar la última iteración de consideración)
