@@ -113,7 +113,7 @@ Si, lo es. Finalmente!
 
 Nuestra lógica que charlamos en clase: al agarrar la charla que antes termina, me aseguro de volver a tener una misma instancia del problema (sin posibles huecos) que ahora comienza en el fin de esa charla. 
 
-Si les interesa que agreguemos una demostración formal a esta sección.
+Si les interesa que agreguemos una demostración formal a esta sección, les pedimos que nos avisen.
 
 ### ¿El algoritmo es Greedy? 
 
