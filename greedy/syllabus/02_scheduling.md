@@ -15,6 +15,7 @@ Para cada una de las estrategias, las enunciamos, analizamos si es óptima, pero
 ## Estrategia 1: Ordenamos por el que comienza antes
 
 Nuestro algoritmo podría ser: 
+
 1. Comienzo con mis charlas agregadas vacías. 
 1. Ordeno por tiempo de inicio.
 1. Por cada charla en ese orden, si la charla no colisiona con ninguna anteriormente agregada, entonces la agregamos. 
@@ -103,6 +104,7 @@ No, lamentablemente no. El contraejemplo anterior sigue sirviendo de contraejemp
 Similar a anteriores: 
 
 Nuestro algoritmo podría ser: 
+
 1. Comienzo con mis charlas agregadas vacías. 
 1. Ordeno por tiempo de fin.
 1. Por cada charla en ese orden, si la charla no colisiona con ninguna anteriormente agregada, entonces la agregamos.
