@@ -97,4 +97,8 @@ Esto no necesariamente es óptimo, como hemos podido ver empíricamente en clase
 El problema original que planteamos es conocido como "Problema de la mochila 0/1", es decir, de cada elemento ponemos un elemento o no lo ponemos. Hay otras versiones de este problema. Una de ellas es el de "Mochila Fraccionada". En este caso, se pueden poner proporciones de elementos (como máximo, el elemento entero). Es decir, podemos poner un 0.5 del primer elemento, 0.2 del segundo, todo el tercero, etc...
 En este caso, el algoritmo de calidad/precio es óptimo. Ordenamos de la misma forma, guardamos mientras entre, y cuando un elemento no entre, guardamos tanto como quede de espacio (es decir, solo uno irá realmente fraccionado, que es el último, el de menor relación valor/precio, y luego podemos parar porque la mochila quedó llena). 
 
+## Pero entonces, ¿se puede resolver óptimo el problema 0/1? 
+
+Con un algoritmo greedy, lamentablemente no (si alguien encuentra la forma, nos avisan, prometemos un 10 en la materia en ese caso). Revisitaremos este problema múltiples veces para ver de resolverlo (de forma óptima) por otros medios y técnicas. 
+
 
