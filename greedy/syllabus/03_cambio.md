@@ -41,5 +41,5 @@ Ni. Depende del sistema monetario. En sistemas monetarios modernos es óptimo. E
 
 Ponemos de ejemplo, teniendo las monedas `[1, 5, 6, 9]` y queriendo cambio para `n = 11`. En este caso, el óptimo es `[5, 6]`, pero nuestro algoritmo devolverá `[1, 1, 9]`.
 
-¿Y cuándo sé cuándo es óptima? Hay [un paper al respecto](https://www.sciencedirect.com/science/article/abs/pii/S0167637704000823). Dejamos acá [una explicación detallada del algoritmo que permite determinarlo](https://stackoverflow.com/questions/69956501/when-does-the-greedy-algorithm-for-the-coin-change-making-problem-always-fail-al). 
+¿Y cuándo sé cuándo es óptima? Hay \color{blue}[un paper al respecto](https://www.sciencedirect.com/science/article/abs/pii/S0167637704000823)\color{black}. Dejamos acá \color{blue}[una explicación detallada del algoritmo que permite determinarlo](https://stackoverflow.com/questions/69956501/when-does-the-greedy-algorithm-for-the-coin-change-making-problem-always-fail-al)\color{black}. 
 
